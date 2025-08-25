@@ -1,6 +1,4 @@
 
-
-
 let produtos = [
     {
         id: 1,
@@ -84,31 +82,51 @@ let produtos = [
     }
 ];
 
-let containerprodutos = document.querySelector(".conjunto-produtos")
+let containerprodutos = document.querySelector(".conjunto-produtos");
+let inputpesquisa = document.querySelector(".inputpesquisa");
+let textoinput = "";
+let todososbotoes = document.querySelectorAll(".botao-categoria");
+let categoriaSelecionada = "todos";
 
 function mostrarprodutos() {
-    let htmlprodutos = ""
+    let htmlprodutos = "";
 
     produtos.forEach(prd => {
+        let nomeMatch = prd.nome.toLowerCase().includes(textoinput.toLowerCase());
+        let categoriaMatch = categoriaSelecionada === "todos" || prd.categoria === categoriaSelecionada;
 
-        htmlprodutos = htmlprodutos + `
-        <div class="caixa-produtos">
-            <img src="${prd.imagem}" class="imagem-produto">
-            <div class="info-produto">
-                <h3 class="nome-produto">${prd.nome}</h3>
-                <p class="descricao-produto">${prd.descricao}</p>
-                ${prd.precoOriginal !== null ? `<p class="precooriginal">R$ ${prd.precoOriginal}</p>` : ""}
-                <p class="preco-produto">R$ ${prd.preco}</p>
-                <button class="botao-produto">ver detalhes</button>
-            </div>
-        </div>`
+        if (nomeMatch && categoriaMatch) {
+            htmlprodutos += `
+            <div class="caixa-produtos">
+                <img src="${prd.imagem}" class="imagem-produto">
+                <div class="info-produto">
+                    <h3 class="nome-produto">${prd.nome}</h3>
+                    <p class="descricao-produto">${prd.descricao}</p>
+                    ${prd.precoOriginal !== null ? `<p class="precooriginal">R$ ${prd.precoOriginal}</p>` : ""}
+                    <p class="preco-produto">R$ ${prd.preco}</p>
+                    <button class="botao-produto">ver detalhes</button>
+                </div>
+            </div>`;
+        }
+    });
 
-        
-    })
-
-    containerprodutos.innerHTML = htmlprodutos
+    containerprodutos.innerHTML = htmlprodutos;
 }
 
-mostrarprodutos()
+function pesquisar() {
+    textoinput = inputpesquisa.value;
+    mostrarprodutos();
+}
 
+inputpesquisa.addEventListener("input", pesquisar);
 
+todososbotoes.forEach(botao => {
+    botao.addEventListener("click", function () {
+        categoriaSelecionada = this.getAttribute("data-categoria");
+        todososbotoes.forEach(b => b.classList.remove("ativo"));
+        this.classList.add("ativo");
+        mostrarprodutos();
+    });
+});
+
+mostrarprodutos();

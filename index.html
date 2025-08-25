@@ -1,8 +1,6 @@
+
 <!DOCTYPE html>
-
 <html lang="pt-br">
-
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +8,6 @@
     <title>Charbel ecomerce</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
     <header>
         <div class="logo">
@@ -19,52 +16,32 @@
         </div>
 
         <div class="caixa-busca">
-            <input placeholder="buscar itens">
+            <input placeholder="buscar itens" class="inputpesquisa">
             <i class="fa-solid fa-magnifying-glass"></i>
         </div>
-
-
     </header>
+
     <div class="caixa-categoria">
         <nav>
-
-            <button class="botao-categoria ativo">todos <i><i class="fa-solid fa-border-all"> </i></i> </button>
-
-            <button class="botao-categoria">smartphone <i class="fa-solid fa-mobile"></i> </button>
-
-            <button class="botao-categoria">Notebook <i class="fa-solid fa-laptop"></i> </button>
-
-            <button class="botao-categoria">headphones <i class="fa-solid fa-headphones"></i> </button>
-
-            <button class="botao-categoria">acessórios <i class="fa-solid fa-keyboard"></i> </button>
-
-            <button class="botao-categoria">smartwatch <i class="fa-solid fa-clock"></i> </button>
-
-
+            <button class="botao-categoria ativo" data-categoria="todos">todos <i class="fa-solid fa-border-all"> </i></button>
+            <button class="botao-categoria" data-categoria="smartphones">smartphone <i class="fa-solid fa-mobile"></i> </button>
+            <button class="botao-categoria" data-categoria="laptops">Notebook <i class="fa-solid fa-laptop"></i> </button>
+            <button class="botao-categoria" data-categoria="headphones">headphones <i class="fa-solid fa-headphones"></i> </button>
+            <button class="botao-categoria" data-categoria="accessories">acessórios <i class="fa-solid fa-keyboard"></i> </button>
+            <button class="botao-categoria" data-categoria="smartwatch">smartwatch <i class="fa-solid fa-clock"></i> </button>
         </nav>
     </div>
 
-    
     <div class="secao-hero">
         <h2>BLACK FRIDAY ANTECIPADA!</h2>
         <p>Os melhores descontos só aqui!</p>
-        </div>
-
-
+    </div>
 
     <div class="produtos">
-
-        <div class="conjunto-produtos">
-
-
-        </div>
-        
+        <div class="conjunto-produtos"></div>
     </div>
+
     <script src="scripts.js"></script>
 </body>
-
 <footer> ©2026 - TechStore - Todos os direitos reservados</footer>
-
-
-
 </html>
